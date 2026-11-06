@@ -309,7 +309,7 @@ async function edgeWorkbook(tables){
  for(const [i,t]of tables.entries())files.push(['xl/worksheets/sheet'+(i+1)+'.xml',edgeWorksheet(t.rows)]);return edgeZip(files);
 }
 
-function nodePolicyHTML(f){const policy=HHA_NODE_POLICIES[f.key];if(!policy)return '';return '<p class="node-description">'+esc(policy.description)+'</p><section class="node-policy" aria-label="Policy anchor for '+esc(f.label)+'"><h3>Policy anchor</h3><p>'+policy.links.map(r=>'<a href="'+esc(r.url)+'" target="_blank" rel="noopener noreferrer">'+esc(r.label)+'</a>').join(' · ')+'</p>'+'<p class="policy-explanation">'+esc(policy.explanation)+'</p></section>';}
+function nodePolicyHTML(f){const policy=HHA_NODE_POLICIES[f.key];if(!policy)return '';return '<section class="node-policy" aria-label="Policy anchor for '+esc(f.label)+'"><h3>Policy anchor</h3><p>'+policy.links.map(r=>'<a href="'+esc(r.url)+'" target="_blank" rel="noopener noreferrer">'+esc(r.label)+'</a>').join(' · ')+'</p>'+'<p class="policy-explanation">'+esc(policy.explanation)+'</p></section>';}
 'use strict';
 const $=id=>document.getElementById(id),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),fmt=n=>Number(n).toLocaleString('en-US'),percent=(a,b)=>b?(100*a/b).toFixed(1)+'%':'—';
 const palette=['#008b8a','#d17e45','#5d78b5','#af6d98','#739b54','#ae9a4b','#6b9eaf','#876caf'];
