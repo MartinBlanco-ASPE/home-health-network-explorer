@@ -1,0 +1,154 @@
+{
+  "checked_utc": "2026-11-06T15:26:17.496780+00:00",
+  "checks": [
+    {
+      "name": "published payload equals frozen home-health payload",
+      "pass": true
+    },
+    {
+      "name": "home-health-only vocabulary and corpus",
+      "pass": true
+    },
+    {
+      "name": "all 451 saved illustrations and 48 pilot accounts retained",
+      "pass": true
+    },
+    {
+      "name": "18 construction sensitivities retained",
+      "pass": true
+    },
+    {
+      "name": "network exactly matches local graph and settings",
+      "pass": true
+    },
+    {
+      "name": "requested title and tabs retained",
+      "pass": true
+    },
+    {
+      "name": "clean header and interpretation cleanup retained",
+      "pass": true
+    },
+    {
+      "name": "inline formula guides retained",
+      "pass": true
+    },
+    {
+      "name": "multi-year filtering retains correct years",
+      "pass": true
+    },
+    {
+      "name": "available comparison contexts calculate separate cohorts",
+      "pass": true
+    },
+    {
+      "name": "Excel download has all three traceability sheets",
+      "pass": true
+    },
+    {
+      "name": "download retains text CCNs and report year",
+      "pass": true
+    },
+    {
+      "name": "Excel retains all 136 displayed edges",
+      "pass": true
+    },
+    {
+      "name": "policy dashboard has all 12 sections and 81 mappings",
+      "pass": true
+    },
+    {
+      "name": "native tooltip remains removed",
+      "pass": true
+    },
+    {
+      "name": "styled tooltip still displays",
+      "pass": true
+    },
+    {
+      "name": "click locks without filtering",
+      "pass": true
+    },
+    {
+      "name": "clear restores all colors",
+      "pass": true
+    },
+    {
+      "name": "correct home health regulation heading",
+      "pass": true
+    },
+    {
+      "name": "OSHA stays a separate scoped reference",
+      "pass": true
+    },
+    {
+      "name": "mapping download retains exact policy links",
+      "pass": true
+    },
+    {
+      "name": "original pilot remains accessible",
+      "pass": true
+    },
+    {
+      "name": "public methods panel reflects publication status",
+      "pass": true
+    },
+    {
+      "name": "tab navigation preserves graph",
+      "pass": true
+    },
+    {
+      "name": "README generates readable methodology",
+      "pass": true
+    },
+    {
+      "name": "all internal documentation links and anchors resolve",
+      "pass": true
+    },
+    {
+      "name": "mobile network fits viewport",
+      "pass": true
+    },
+    {
+      "name": "mobile policy map fits viewport",
+      "pass": true
+    },
+    {
+      "name": "no browser errors or external data requests",
+      "pass": true
+    },
+    {
+      "name": "publication excludes source workbooks and internal documents",
+      "pass": true
+    },
+    {
+      "name": "release includes README description build and attribution",
+      "pass": true
+    },
+    {
+      "name": "unchanged source input: payload.json",
+      "pass": true
+    },
+    {
+      "name": "unchanged source input: default_graph.json",
+      "pass": true
+    },
+    {
+      "name": "unchanged source input: construction_sensitivities.json",
+      "pass": true
+    },
+    {
+      "name": "unchanged source input: rules.json",
+      "pass": true
+    },
+    {
+      "name": "unchanged source input: match_ledger.json",
+      "pass": true
+    },
+    {
+      "name": "unchanged source input: HHA_2567s_2018_to_2026YTD.xlsx",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

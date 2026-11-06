@@ -1,0 +1,1 @@
+const HHA=__PAYLOAD__;const HHA_BASE_GROUPS=__BASE_GROUPS__;

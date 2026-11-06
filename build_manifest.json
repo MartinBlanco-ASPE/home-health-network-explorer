@@ -1,0 +1,21 @@
+{
+  "build.py": "93a7a09ed840f3707d0aef3722f431852d920539426297ae24a027185857ba97",
+  "data/baseline_groups.json": "fccec3b6a75dcfb6d5525e950f58e3f4168fede57bfaef15afc2036c468c7f20",
+  "data/payload.json": "3af5e95095bf32ccf8710d3553ca8db611dfdcb2e6841ee6fc8c432391be82ec",
+  "data/policy_anchors.json": "b33a7f3cf9d4d9f9f0011804c57e2f8cd31305bb9211f188447c424ee9011654",
+  "data/provenance.json": "e2f6869d180bdf1c7cbae69e3c4aec17fa1d63f68f0a89655eaeb2f36a2fdd13",
+  "data/survey_dates.json": "dc81712811afd3521d07339ef4942f3e188a581d8e4d9670aaa6e71795d29954",
+  "index.html": "8a6577f7b1860fd39439d42ebe0373f79c109d0631710dde107cd2076a5737cf",
+  "methodology.html": "bb7dd4e0429ec2698380c606caed4c5ecfcb2e8bd17cc565ae1f325fd4e6f550",
+  "methods/construction_sensitivities.json": "7e05077ff84373191fd3a733e1f583917b21b460c82a8e7bb9ecbd3934ce7744",
+  "methods/default_graph.json": "a287d35c767590a61e5630256a8265abbab9e5138b1648358c799168d3795893",
+  "methods/screening_rules.json": "42153713d9aba8ba4b47888692eb1324d6c8d3d8c65c8ed3e81aaddfa799d25c",
+  "README.md": "39a0eb699a7253833d3cd73cfeebd2410f2b5f93e582ce8a1457ae7eeba3fd05",
+  "src/community_groups.js": "92fea439f4304654073d396a17978a829449ceffa3c9569da9592e9958bf4acd",
+  "src/dashboard.js": "6debf67e189674b333ecc7b6f82f67e7b87945576f9828da0fb8cdfebe573e13",
+  "src/initialize.js": "e7442cc10342922e0d813cbf5a5da10ec67cc8ffbcfd714866c0306449abac65",
+  "src/interactions.js": "083db4411f84711e7ac40e2808fd791eb2dadfb229df283a2c845248173a41cd",
+  "src/page.html": "8ec858551d0f348f25107256d75697b2d92ed7144f63e68bc063c3d630120f0c",
+  "THIRD_PARTY_NOTICES.md": "af7d3211f7389c58d2323a3026d3940ee91e8ff1d3c494734e220f59574c962d",
+  "vendor/vis-network-9.1.9.min.js": "f53f833ddb9bf97efe856bb0637d4fe88f39e39999c7e94a4b8afc8de8a1a2e5"
+}
