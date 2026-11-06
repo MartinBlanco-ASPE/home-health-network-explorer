@@ -1,5 +1,7 @@
 # Home Health Network Explorer
 
+[Open the interactive dashboard](https://martinblanco-aspe.github.io/home-health-network-explorer/) · [Detailed methodology](https://martinblanco-aspe.github.io/home-health-network-explorer/methodology.html)
+
 Interactive analysis of CMS Home Health Quality, Certification and Oversight Reports (QCOR). Explore care wording in survey narratives, inspect source evidence, compare survey contexts, and browse an issue-to-regulation sunburst.
 
 This is a separate home health study. Its records, vocabulary, policy references and screening rules are specific to home health. The hospice project supplies reusable interface code, not observations or study results.
