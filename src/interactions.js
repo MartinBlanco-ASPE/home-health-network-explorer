@@ -40,15 +40,16 @@ function installElasticLayout(graph){
 /* Emphasize direct displayed neighbors; preserve severity hues and graph data. */
 function installNeighborhoodFocus(graph){
   const nodeData=graph.body.data.nodes,edgeData=graph.body.data.edges;
-  const baseNodes=nodeData.get().map(n=>({id:n.id,opacity:n.opacity??1,font:{...n.font}}));
+  const baseNodes=nodeData.get().map(n=>({id:n.id,opacity:n.opacity??1,font:{...n.font},redDiamond:n.shape==='diamond'&&n.color?.background==='#ff2020'}));
   const baseEdges=edgeData.get().map(e=>({id:e.id,from:e.from,to:e.to,color:{...e.color}}));
   let hovered=null,locked=null,applied=undefined;
   function paint(){
+    if(graph.removalSimulationActive)return;
     const focus=hovered??locked;if(focus===applied)return;applied=focus;
     const neighbors=new Set(focus===null?[]:[focus]);
     if(focus!==null)for(const e of baseEdges){if(e.from===focus)neighbors.add(e.to);if(e.to===focus)neighbors.add(e.from);}
     nodeData.update(baseNodes.map(n=>{
-      const bright=focus===null||neighbors.has(n.id);
+      const bright=focus===null||neighbors.has(n.id)||n.redDiamond;
       return {id:n.id,opacity:bright?n.opacity:.13,font:{...n.font,color:bright?n.font.color:'rgba(35,62,82,0.18)',strokeColor:bright?n.font.strokeColor:'rgba(255,255,255,0.15)'}};
     }));
     edgeData.update(baseEdges.map(e=>{

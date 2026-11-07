@@ -1,0 +1,23 @@
+{
+  "study": "homehealth",
+  "input_sha256": "cc50efd5dba0103b088b98a7cfa3197fe30a13be1e94dd2c5de4ee5967899904",
+  "core_sha256": "d3e4991bdf799c5181a4b099c88c97cb637e7042a8659c18244b3d1bf5003f13",
+  "settings": {
+    "exactUpTo": 3,
+    "restarts": 12,
+    "seed": 20261106,
+    "randomSeeds": [
+      5001,
+      5060
+    ]
+  },
+  "shared_code_only": true,
+  "severity_route": "33-phrase saved exact reference with strict topology/label/shape match; greedy fallback",
+  "route_order": "Reviewer nested order restricted to its saved fewest_set, followed by remaining members of that set; goal independently checked at 33",
+  "reference_sha256": {
+    "runtime_reference.json": "9ecfa595f6332205f83fe2b218b64f99a0160f2e85cfb8f91c470eb2dcc2014d",
+    "sev_data_homehealth.json": "927afe1e13f5ac01a5b6de3064edbc1d3e96875e82e82dbf740c460b6699b696",
+    "sev_exact_homehealth.json": "096891e9347177010935225b1b9e563294a051bfb87fe28eee857ea55065cf81",
+    "sev_pre_homehealth.json": "d9c5e3cdcb65c0dab490682783311f6efa2c6d312ecc492e81ad2c37cf11e391"
+  }
+}

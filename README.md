@@ -34,7 +34,7 @@ Default evidence-oriented text begins after the first formal “not met as evide
 
 Identical-text collapse retains the first eligible record for each source CCN and exact normalized full-text combination within the current selection. Identical text at a different CCN remains. It does not merge similar meanings. Screening flags always use the evidence suffix, including when wording uses full text.
 
-Wording uses disclosed case-insensitive regular-expression aliases. Features may overlap. Matching is lexical, with no stemming, embeddings or inferred semantic expansion. Displayed aliases do not automatically assign interpretive pilot codes.
+Wording uses disclosed case-insensitive regular-expression aliases. Features may overlap. Matching is lexical, with no stemming, embeddings or inferred semantic expansion. Alias definitions do not automatically assign interpretive pilot codes.
 
 ## Connection mathematics
 
@@ -52,6 +52,23 @@ Keep at least 25 shared records and PPMI at least log2(1.5), approximately 0.585
 The weighted alternative uses record weight 1 + screening score. Marginal and joint proportions use those weights; shared-record support remains unweighted. TF-IDF uses TF = 1 + ln(alias occurrences), IDF = ln((N+1)/(record frequency+1)) + 1, record-vector normalization, then cosine between feature columns. CCN-incidence cosine uses binary feature presence by agency and may connect mentions from different records or years.
 
 The 18 saved construction sensitivities vary support, lift, text scope, deduplication, survey-group balancing, long-record exclusion, connection method, screen weighting and clustering resolution. Adjusted Rand Index measures partition agreement, not thematic validity. See [construction sensitivities](methods/construction_sensitivities.json) and [the frozen default graph](methods/default_graph.json).
+
+## Removal simulations
+
+Turn Simulation on in the map title bar. Floating Play/Pause, Reset and a removal slider work alongside the left filters and compact right-hand controls. Removed phrases have definition tooltips; click a care phrase or use the dropdown while paused, and use × to restore it. Manual edits are blocked during playback. Pull pieces apart starts checked. Play fits the remaining sequence once, then preserves user pan and zoom between steps. Fit reframes explicitly. Deleted links are faint visual traces, excluded from connectivity calculations. Turning simulation off restores the original graph and evidence cards.
+
+Wording simulation runs through 0–20 removals. It uses the frozen reviewer engine: exhaustive best-set search through three removals, then best-found sets using greedy/bridge/hub starts and 12 seeded random starts with swap improvement. Each count has its own set, so phrases can return between snapshots. Eight strategy choices remain available; the charts show only Best set to shatter it, Best set to shrink the largest piece and Most common phrases. Filtered results calculate in a cached background worker.
+
+```text
+Largest-piece share = max(component sizes) / starting node count
+Fragmentation = 1 - sum(s_i * (s_i - 1)) / (n * (n - 1))
+```
+
+Here s_i is a surviving connected-component size and n is the surviving node count. Wording uses all starting phrases as its largest-piece denominator. The protected-diamond view uses all starting nodes, including diamonds. Wording follows the reviewer engine's F=1 convention when fewer than two nodes remain; the protected-diamond view uses F=0 in that edge case.
+
+The screening-diamond view retains eight provisional home-health care-issue families and removes only care phrases, up to 40. Its own saved integer-program reference requires 33 removals on the matching 60-node/152-link default graph, leaving 27 nodes and a diamond-free main component of 14. Filtered graphs use a labeled greedy route rather than a new minimum claim. For this simulation, separation succeeds when all screening diamonds sit outside a main component containing more than half the remaining nodes. That majority rule is a simulation-specific constraint, not a general requirement of network fragmentation theory. Diamonds represent screening prompts rather than confirmed severe events. The target curve ends when separation succeeds; adaptive-degree and fixed-random comparisons continue to the removal limit. Neutral colors use teal care phrases and uniformly bright-red screening diamonds.
+
+[Borgatti (2006)](https://doi.org/10.1007/s10588-006-7084-x) provides node-set disruption and fragmentation context; [Braunstein et al. (2016)](https://pmc.ncbi.nlm.nih.gov/articles/PMC5098660/) studies network dismantling. This simulation describes text connectivity, not clinical effects of eliminating an issue or an intervention recommendation. Its data and reference result are separate from hospice.
 
 ## Care-issue screening
 
@@ -119,3 +136,5 @@ The build recreates index.html and methodology.html from the included snapshot a
 Source context: [CMS QCOR](https://qcor.cms.gov/main.jsp), [42 CFR Part 484](https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-G/part-484), and [CMS State Operations Manual Appendix B](https://www.cms.gov/Regulations-and-Guidance/Guidance/Manuals/Downloads/som107ap_b_hha.pdf). External policy pages may change after the release date.
 
 Initial repository release: November 6, 2026. Study stage: Phase 3 descriptive exploration. This repository is a research presentation and is not an official CMS reporting product. Publication does not imply federal endorsement or advancement to Phase 4.
+
+Simulation/interface update: November 7, 2026. Both the build and the study-specific simulation behavior were checked before release.

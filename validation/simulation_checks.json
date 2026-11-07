@@ -1,0 +1,431 @@
+[
+  {
+    "name": "view moved to map title bar",
+    "pass": true
+  },
+  {
+    "name": "neutral labels in both color menus",
+    "pass": true
+  },
+  {
+    "name": "year and export controls visible on left",
+    "pass": true
+  },
+  {
+    "name": "own default 52 phrase 136 link graph",
+    "pass": true
+  },
+  {
+    "name": "wording 20 cap eight strategies",
+    "pass": true
+  },
+  {
+    "name": "compact right card and packed default",
+    "pass": true
+  },
+  {
+    "name": "baseline descriptions hidden during simulation",
+    "pass": true
+  },
+  {
+    "name": "latest wording text cleanup",
+    "pass": true
+  },
+  {
+    "name": "opt_fragmentation correct set 0",
+    "pass": true
+  },
+  {
+    "name": "opt_fragmentation correct set 3",
+    "pass": true
+  },
+  {
+    "name": "opt_fragmentation correct set 8",
+    "pass": true
+  },
+  {
+    "name": "opt_fragmentation correct set 15",
+    "pass": true
+  },
+  {
+    "name": "opt_fragmentation correct set 20",
+    "pass": true
+  },
+  {
+    "name": "opt_largest correct set 0",
+    "pass": true
+  },
+  {
+    "name": "opt_largest correct set 3",
+    "pass": true
+  },
+  {
+    "name": "opt_largest correct set 8",
+    "pass": true
+  },
+  {
+    "name": "opt_largest correct set 15",
+    "pass": true
+  },
+  {
+    "name": "opt_largest correct set 20",
+    "pass": true
+  },
+  {
+    "name": "records correct set 0",
+    "pass": true
+  },
+  {
+    "name": "records correct set 3",
+    "pass": true
+  },
+  {
+    "name": "records correct set 8",
+    "pass": true
+  },
+  {
+    "name": "records correct set 15",
+    "pass": true
+  },
+  {
+    "name": "records correct set 20",
+    "pass": true
+  },
+  {
+    "name": "paused map click removes manually",
+    "pass": true
+  },
+  {
+    "name": "paused dropdown removes manually",
+    "pass": true
+  },
+  {
+    "name": "removed pill has own node description",
+    "pass": true
+  },
+  {
+    "name": "restore returns node",
+    "pass": true
+  },
+  {
+    "name": "off restores node data",
+    "pass": true
+  },
+  {
+    "name": "off restores baseline descriptions",
+    "pass": true
+  },
+  {
+    "name": "off restores original positions",
+    "pass": true
+  },
+  {
+    "name": "hover focus restored after toggle",
+    "pass": true
+  },
+  {
+    "name": "normal evidence compact description and policy",
+    "pass": true
+  },
+  {
+    "name": "severity defaults to teal with bright red diamonds",
+    "pass": true
+  },
+  {
+    "name": "home-health reference topology exact",
+    "pass": true
+  },
+  {
+    "name": "severity 40 cap and own chart series",
+    "pass": true
+  },
+  {
+    "name": "majority condition explicitly simulation-specific",
+    "pass": true
+  },
+  {
+    "name": "reference goal not yet reached at 32",
+    "pass": true
+  },
+  {
+    "name": "own exact 33 reference reaches goal",
+    "pass": true
+  },
+  {
+    "name": "reference status reports home-health counts",
+    "pass": true
+  },
+  {
+    "name": "red diamonds persist in components",
+    "pass": true
+  },
+  {
+    "name": "target curves agree with every live severity step",
+    "pass": true
+  },
+  {
+    "name": "degree curves agree with every live severity step",
+    "pass": true
+  },
+  {
+    "name": "random curves agree with every live severity step",
+    "pass": true
+  },
+  {
+    "name": "severity math hover definition",
+    "pass": true
+  },
+  {
+    "name": "math keyboard focus opens help",
+    "pass": true
+  },
+  {
+    "name": "math click pins and Escape dismisses",
+    "pass": true
+  },
+  {
+    "name": "removed-pill hover definition from own data",
+    "pass": true
+  },
+  {
+    "name": "pill keyboard tooltip",
+    "pass": true
+  },
+  {
+    "name": "play blocks manual map removal",
+    "pass": true
+  },
+  {
+    "name": "manual camera preserved on playback tick",
+    "pass": true
+  },
+  {
+    "name": "play blocks pill restore",
+    "pass": true
+  },
+  {
+    "name": "pause restores manual controls",
+    "pass": true
+  },
+  {
+    "name": "diamonds cannot be removed manually",
+    "pass": true
+  },
+  {
+    "name": "leaving network tab pauses playback",
+    "pass": true
+  },
+  {
+    "name": "general opt_fragmentation 1560 all packed frames fit map",
+    "pass": true
+  },
+  {
+    "name": "general opt_fragmentation 1560 no per-step auto recenter",
+    "pass": true
+  },
+  {
+    "name": "general opt_fragmentation 1560 play stops correctly",
+    "pass": true
+  },
+  {
+    "name": "general opt_fragmentation 1560 cursor follows frame",
+    "pass": true
+  },
+  {
+    "name": "general opt_largest 1560 all packed frames fit map",
+    "pass": true
+  },
+  {
+    "name": "general opt_largest 1560 no per-step auto recenter",
+    "pass": true
+  },
+  {
+    "name": "general opt_largest 1560 play stops correctly",
+    "pass": true
+  },
+  {
+    "name": "general opt_largest 1560 cursor follows frame",
+    "pass": true
+  },
+  {
+    "name": "general records 1560 all packed frames fit map",
+    "pass": true
+  },
+  {
+    "name": "general records 1560 no per-step auto recenter",
+    "pass": true
+  },
+  {
+    "name": "general records 1560 play stops correctly",
+    "pass": true
+  },
+  {
+    "name": "general records 1560 cursor follows frame",
+    "pass": true
+  },
+  {
+    "name": "general 1560 no horizontal overflow",
+    "pass": true
+  },
+  {
+    "name": "severity target 1560 all packed frames fit map",
+    "pass": true
+  },
+  {
+    "name": "severity target 1560 no per-step auto recenter",
+    "pass": true
+  },
+  {
+    "name": "severity target 1560 play stops correctly",
+    "pass": true
+  },
+  {
+    "name": "severity target 1560 cursor follows frame",
+    "pass": true
+  },
+  {
+    "name": "severity random 1560 all packed frames fit map",
+    "pass": true
+  },
+  {
+    "name": "severity random 1560 no per-step auto recenter",
+    "pass": true
+  },
+  {
+    "name": "severity random 1560 play stops correctly",
+    "pass": true
+  },
+  {
+    "name": "severity random 1560 cursor follows frame",
+    "pass": true
+  },
+  {
+    "name": "severity 1560 no horizontal overflow",
+    "pass": true
+  },
+  {
+    "name": "general opt_fragmentation 390 all packed frames fit map",
+    "pass": true
+  },
+  {
+    "name": "general opt_fragmentation 390 no per-step auto recenter",
+    "pass": true
+  },
+  {
+    "name": "general opt_fragmentation 390 play stops correctly",
+    "pass": true
+  },
+  {
+    "name": "general opt_fragmentation 390 cursor follows frame",
+    "pass": true
+  },
+  {
+    "name": "general opt_largest 390 all packed frames fit map",
+    "pass": true
+  },
+  {
+    "name": "general opt_largest 390 no per-step auto recenter",
+    "pass": true
+  },
+  {
+    "name": "general opt_largest 390 play stops correctly",
+    "pass": true
+  },
+  {
+    "name": "general opt_largest 390 cursor follows frame",
+    "pass": true
+  },
+  {
+    "name": "general records 390 all packed frames fit map",
+    "pass": true
+  },
+  {
+    "name": "general records 390 no per-step auto recenter",
+    "pass": true
+  },
+  {
+    "name": "general records 390 play stops correctly",
+    "pass": true
+  },
+  {
+    "name": "general records 390 cursor follows frame",
+    "pass": true
+  },
+  {
+    "name": "general 390 no horizontal overflow",
+    "pass": true
+  },
+  {
+    "name": "severity target 390 all packed frames fit map",
+    "pass": true
+  },
+  {
+    "name": "severity target 390 no per-step auto recenter",
+    "pass": true
+  },
+  {
+    "name": "severity target 390 play stops correctly",
+    "pass": true
+  },
+  {
+    "name": "severity target 390 cursor follows frame",
+    "pass": true
+  },
+  {
+    "name": "severity random 390 all packed frames fit map",
+    "pass": true
+  },
+  {
+    "name": "severity random 390 no per-step auto recenter",
+    "pass": true
+  },
+  {
+    "name": "severity random 390 play stops correctly",
+    "pass": true
+  },
+  {
+    "name": "severity random 390 cursor follows frame",
+    "pass": true
+  },
+  {
+    "name": "severity 390 no horizontal overflow",
+    "pass": true
+  },
+  {
+    "name": "filtered severity drops exact guarantee",
+    "pass": true
+  },
+  {
+    "name": "filtered wording data matches current graph",
+    "pass": true
+  },
+  {
+    "name": "filtered wording only three requested series",
+    "pass": true
+  },
+  {
+    "name": "no runtime exceptions",
+    "pass": true,
+    "errors": []
+  },
+  {
+    "name": "analytical payload and default graph unchanged",
+    "pass": true
+  },
+  {
+    "name": "breakup_core.js reused byte for byte",
+    "pass": true
+  },
+  {
+    "name": "wording_simulation_analysis.js reused byte for byte",
+    "pass": true
+  },
+  {
+    "name": "wording_simulation_ui.js reused byte for byte",
+    "pass": true
+  },
+  {
+    "name": "network_removal_overlay.css reused byte for byte",
+    "pass": true
+  }
+]
