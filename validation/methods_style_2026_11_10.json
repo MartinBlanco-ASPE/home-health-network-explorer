@@ -1,0 +1,26 @@
+{
+  "reference_style": {
+    "font": "math",
+    "size": "19.52px",
+    "color": "rgb(31, 45, 58)",
+    "display": "block"
+  },
+  "methods_style": {
+    "font": "math",
+    "size": "19.52px",
+    "color": "rgb(31, 45, 58)",
+    "display": "block"
+  },
+  "exact_font_size_color_display_match": true,
+  "reference_card_style": {
+    "background": "rgb(255, 255, 255)",
+    "border": "rgb(227, 232, 238)",
+    "borderWidth": "1px"
+  },
+  "desktop_mobile_checked": [
+    1440,
+    390
+  ],
+  "twelve_equations_retained": true,
+  "equations_sha256": "55b1c38cae8f82572afc39600b73a9e9527e647a73165ed7482efd048bad8842"
+}
