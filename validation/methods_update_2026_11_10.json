@@ -1,0 +1,116 @@
+{
+  "date": "2026-11-10",
+  "checks": [
+    {
+      "name": "Published dashboard, source, analytical data and previous methods artifacts unchanged",
+      "pass": true
+    },
+    {
+      "name": "All 12 MathML equations parse",
+      "pass": true
+    },
+    {
+      "name": "Local default target counts match solved references",
+      "pass": true
+    },
+    {
+      "name": "Worked PPMI example correct",
+      "pass": true
+    },
+    {
+      "name": "1440: all equations visible",
+      "pass": true
+    },
+    {
+      "name": "1440: fractions rendered with meaningful height",
+      "pass": true
+    },
+    {
+      "name": "1440: no page overflow",
+      "pass": true
+    },
+    {
+      "name": "1440: formula overflow stays inside scroll cards",
+      "pass": true
+    },
+    {
+      "name": "1440: math cards keyboard accessible and labeled",
+      "pass": true
+    },
+    {
+      "name": "1440: navigation anchors resolve",
+      "pass": true
+    },
+    {
+      "name": "1440: no raw TeX visible",
+      "pass": true
+    },
+    {
+      "name": "1440: publication status explicit",
+      "pass": true
+    },
+    {
+      "name": "1440: actual AI coverage and model distinction",
+      "pass": true
+    },
+    {
+      "name": "1440: policy sources retained",
+      "pass": true
+    },
+    {
+      "name": "1440: no network dependency for mathematics",
+      "pass": true
+    },
+    {
+      "name": "390: all equations visible",
+      "pass": true
+    },
+    {
+      "name": "390: fractions rendered with meaningful height",
+      "pass": true
+    },
+    {
+      "name": "390: no page overflow",
+      "pass": true
+    },
+    {
+      "name": "390: formula overflow stays inside scroll cards",
+      "pass": true
+    },
+    {
+      "name": "390: math cards keyboard accessible and labeled",
+      "pass": true
+    },
+    {
+      "name": "390: navigation anchors resolve",
+      "pass": true
+    },
+    {
+      "name": "390: no raw TeX visible",
+      "pass": true
+    },
+    {
+      "name": "390: publication status explicit",
+      "pass": true
+    },
+    {
+      "name": "390: actual AI coverage and model distinction",
+      "pass": true
+    },
+    {
+      "name": "390: policy sources retained",
+      "pass": true
+    },
+    {
+      "name": "390: no network dependency for mathematics",
+      "pass": true
+    },
+    {
+      "name": "No browser exceptions",
+      "pass": true
+    }
+  ],
+  "browser_errors": [],
+  "methods_sha256": "142f7b78b3d4738746c0a4ae9b667f5423bc801e513f810f335bbbf155e53efb",
+  "published_dashboard_sha256": "44f1a940a767b8ee6ef25b3e9912ae68ba4af9ea9f0cf54e35c809d43abc5fc8"
+}

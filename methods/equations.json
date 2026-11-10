@@ -1,0 +1,86 @@
+[
+  {
+    "id": "ppmi",
+    "title": "Association between two features",
+    "tex": "\\operatorname{PPMI}(A,B)=\\max\\left(0,\\log_2\\frac{N n_{AB}}{n_A n_B}\\right)",
+    "mathml": "<mrow><mi>PPMI</mi><mrow><mo>(</mo><mrow><mi>A</mi><mo>,</mo><mi>B</mi></mrow><mo>)</mo></mrow><mo>=</mo><mi>max</mi><mrow><mo>(</mo><mrow><mn>0</mn><mo>,</mo><msub><mi>log</mi><mn>2</mn></msub><mfrac><mrow><mi>N</mi><msub><mi>n</mi><mrow><mi>A</mi><mi>B</mi></mrow></msub></mrow><mrow><msub><mi>n</mi><mi>A</mi></msub><msub><mi>n</mi><mi>B</mi></msub></mrow></mfrac></mrow><mo>)</mo></mrow></mrow>",
+    "label": "PPMI of A and B equals the maximum of zero and log base two of N times the shared record count, divided by the product of the individual record counts."
+  },
+  {
+    "id": "screen",
+    "title": "Screening breadth and record weight",
+    "tex": "s_r=\\min(3,f_r),\\qquad w_r=1+s_r",
+    "mathml": "<mrow><msub><mi>s</mi><mi>r</mi></msub><mo>=</mo><mi>min</mi><mrow><mo>(</mo><mrow><mn>3</mn><mo>,</mo><msub><mi>f</mi><mi>r</mi></msub></mrow><mo>)</mo></mrow><mo>,</mo><mspace width=\"1em\"/><msub><mi>w</mi><mi>r</mi></msub><mo>=</mo><mn>1</mn><mo>+</mo><msub><mi>s</mi><mi>r</mi></msub></mrow>",
+    "label": "Screening breadth is the matched-family count capped at three. The weighted network gives a record weight of one plus that breadth."
+  },
+  {
+    "id": "weighted",
+    "title": "Weighted record counts",
+    "tex": "W=\\sum_r w_r,\\quad m_A=\\sum_r w_r x_{rA},\\quad m_{AB}=\\sum_r w_r x_{rA}x_{rB}",
+    "mathml": "<mtable columnalign=\"left\" rowspacing=\"0.6em\"><mtr><mtd><mrow><mi>W</mi><mo>=</mo><mrow><munder><mo>∑</mo><mi>r</mi></munder><msub><mi>w</mi><mi>r</mi></msub></mrow></mrow></mtd></mtr><mtr><mtd><mrow><msub><mi>m</mi><mi>A</mi></msub><mo>=</mo><mrow><munder><mo>∑</mo><mi>r</mi></munder><mrow><msub><mi>w</mi><mi>r</mi></msub><msub><mi>x</mi><mrow><mi>r</mi><mi>A</mi></mrow></msub></mrow></mrow></mrow></mtd></mtr><mtr><mtd><mrow><msub><mi>m</mi><mrow><mi>A</mi><mi>B</mi></mrow></msub><mo>=</mo><mrow><munder><mo>∑</mo><mi>r</mi></munder><mrow><msub><mi>w</mi><mi>r</mi></msub><msub><mi>x</mi><mrow><mi>r</mi><mi>A</mi></mrow></msub><msub><mi>x</mi><mrow><mi>r</mi><mi>B</mi></mrow></msub></mrow></mrow></mrow></mtd></mtr></mtable>",
+    "label": "Total mass W is the sum of record weights. Feature mass m A sums weights of records mentioning A. Joint mass m AB sums weights of records mentioning both features."
+  },
+  {
+    "id": "weighted-ppmi",
+    "title": "Association after record weighting",
+    "tex": "\\operatorname{PPMI}_w(A,B)=\\max\\left(0,\\log_2\\frac{W m_{AB}}{m_A m_B}\\right)",
+    "mathml": "<mrow><msub><mi>PPMI</mi><mi>w</mi></msub><mrow><mo>(</mo><mrow><mi>A</mi><mo>,</mo><mi>B</mi></mrow><mo>)</mo></mrow><mo>=</mo><mi>max</mi><mrow><mo>(</mo><mrow><mn>0</mn><mo>,</mo><msub><mi>log</mi><mn>2</mn></msub><mfrac><mrow><mi>W</mi><msub><mi>m</mi><mrow><mi>A</mi><mi>B</mi></mrow></msub></mrow><mrow><msub><mi>m</mi><mi>A</mi></msub><msub><mi>m</mi><mi>B</mi></msub></mrow></mfrac></mrow><mo>)</mo></mrow></mrow>",
+    "label": "Weighted PPMI uses weighted joint and marginal masses. Shared-record support is still an unweighted record count."
+  },
+  {
+    "id": "coverage",
+    "title": "Agency coverage and visible node radius",
+    "tex": "\\operatorname{coverage}(A)=\\frac{c_A}{C},\\qquad r_A=\\max\\left(8,42\\sqrt{\\frac{c_A}{c_{\\max}}}\\right)",
+    "mathml": "<mtable columnalign=\"left\" rowspacing=\"0.6em\"><mtr><mtd><mrow><mi>coverage</mi><mrow><mo>(</mo><mi>A</mi><mo>)</mo></mrow><mo>=</mo><mfrac><msub><mi>c</mi><mi>A</mi></msub><mi>C</mi></mfrac></mrow></mtd></mtr><mtr><mtd><mrow><msub><mi>r</mi><mi>A</mi></msub><mo>=</mo><mi>max</mi><mrow><mo>(</mo><mrow><mn>8</mn><mo>,</mo><mn>42</mn><msqrt><mfrac><msub><mi>c</mi><mi>A</mi></msub><msub><mi>c</mi><mi>max</mi></msub></mfrac></msqrt></mrow><mo>)</mo></mrow></mrow></mtd></mtr></mtable>",
+    "label": "Coverage is the fraction of selected source agencies mentioning a feature. Node radius is the larger of eight and forty-two times the square root of its agency count divided by the largest displayed agency count."
+  },
+  {
+    "id": "tfidf",
+    "title": "Frequency and rarity within records",
+    "tex": "t_{rA}=(1+\\ln c_{rA})\\left(1+\\ln\\frac{N+1}{df_A+1}\\right)",
+    "mathml": "<mrow><msub><mi>t</mi><mrow><mi>r</mi><mi>A</mi></mrow></msub><mo>=</mo><mrow><mo>(</mo><mrow><mn>1</mn><mo>+</mo><mi>ln</mi><msub><mi>c</mi><mrow><mi>r</mi><mi>A</mi></mrow></msub></mrow><mo>)</mo></mrow><mrow><mo>(</mo><mrow><mn>1</mn><mo>+</mo><mi>ln</mi><mfrac><mrow><mi>N</mi><mo>+</mo><mn>1</mn></mrow><mrow><msub><mi>df</mi><mi>A</mi></msub><mo>+</mo><mn>1</mn></mrow></mfrac></mrow><mo>)</mo></mrow></mrow>",
+    "label": "For a positive alias count, TF-IDF equals one plus the natural logarithm of the count, times one plus the natural logarithm of N plus one divided by document frequency plus one."
+  },
+  {
+    "id": "cosine",
+    "title": "Cosine similarity between feature columns",
+    "tex": "\\operatorname{cos}(A,B)=\\frac{\\sum_r z_{rA}z_{rB}}{\\sqrt{\\sum_r z_{rA}^2}\\sqrt{\\sum_r z_{rB}^2}}",
+    "mathml": "<mrow><mi>cos</mi><mrow><mo>(</mo><mrow><mi>A</mi><mo>,</mo><mi>B</mi></mrow><mo>)</mo></mrow><mo>=</mo><mfrac><mrow><munder><mo>∑</mo><mi>r</mi></munder><mrow><msub><mi>z</mi><mrow><mi>r</mi><mi>A</mi></mrow></msub><msub><mi>z</mi><mrow><mi>r</mi><mi>B</mi></mrow></msub></mrow></mrow><mrow><msqrt><mrow><munder><mo>∑</mo><mi>r</mi></munder><msup><msub><mi>z</mi><mrow><mi>r</mi><mi>A</mi></mrow></msub><mn>2</mn></msup></mrow></msqrt><msqrt><mrow><munder><mo>∑</mo><mi>r</mi></munder><msup><msub><mi>z</mi><mrow><mi>r</mi><mi>B</mi></mrow></msub><mn>2</mn></msup></mrow></msqrt></mrow></mfrac></mrow>",
+    "label": "Cosine is the dot product of two feature columns divided by the product of their lengths, after each record vector is normalized."
+  },
+  {
+    "id": "incidence",
+    "title": "Binary agency-incidence similarity",
+    "tex": "\\operatorname{cos}_{CCN}(A,B)=\\frac{c_{AB}}{\\sqrt{c_Ac_B}}",
+    "mathml": "<mrow><msub><mi>cos</mi><mtext>CCN</mtext></msub><mrow><mo>(</mo><mrow><mi>A</mi><mo>,</mo><mi>B</mi></mrow><mo>)</mo></mrow><mo>=</mo><mfrac><msub><mi>c</mi><mrow><mi>A</mi><mi>B</mi></mrow></msub><msqrt><mrow><msub><mi>c</mi><mi>A</mi></msub><msub><mi>c</mi><mi>B</mi></msub></mrow></msqrt></mfrac></mrow>",
+    "label": "Agency-incidence cosine is the number of source agencies mentioning both features divided by the square root of the product of the individual agency counts."
+  },
+  {
+    "id": "largest-piece",
+    "title": "Largest surviving piece",
+    "tex": "L=\\frac{\\max_i s_i}{N_0}",
+    "mathml": "<mrow><mi>L</mi><mo>=</mo><mfrac><mrow><msub><mi>max</mi><mi>i</mi></msub><msub><mi>s</mi><mi>i</mi></msub></mrow><msub><mi>N</mi><mn>0</mn></msub></mfrac></mrow>",
+    "label": "Largest-piece share is the number of surviving nodes in the largest connected component divided by the original starting node count."
+  },
+  {
+    "id": "fragmentation",
+    "title": "Fragmentation of the surviving graph",
+    "tex": "F=1-\\frac{\\sum_i s_i(s_i-1)}{n(n-1)}",
+    "mathml": "<mrow><mi>F</mi><mo>=</mo><mn>1</mn><mo>−</mo><mfrac><mrow><munder><mo>∑</mo><mi>i</mi></munder><mrow><msub><mi>s</mi><mi>i</mi></msub><mrow><mo>(</mo><mrow><msub><mi>s</mi><mi>i</mi></msub><mo>−</mo><mn>1</mn></mrow><mo>)</mo></mrow></mrow></mrow><mrow><mi>n</mi><mrow><mo>(</mo><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><mo>)</mo></mrow></mrow></mfrac></mrow>",
+    "label": "Fragmentation is one minus the proportion of surviving ordered node pairs in the same connected component."
+  },
+  {
+    "id": "published-cut",
+    "title": "Published view: separate every protected diamond",
+    "tex": "\\min_R |R|\\quad\\text{subject to }R\\cap D=\\varnothing,\\ C\\cap D=\\varnothing,\\ 2|C|>|V|-|R|",
+    "mathml": "<mtable columnalign=\"left\" rowspacing=\"0.6em\"><mtr><mtd><mrow><munder><mi>min</mi><mi>R</mi></munder><mrow><mo>|</mo><mi>R</mi><mo>|</mo></mrow></mrow></mtd></mtr><mtr><mtd><mrow><mtext>subject to</mtext><mspace width=\".6em\"/><mi>R</mi><mo>∩</mo><mi>D</mi><mo>=</mo><mo>∅</mo></mrow></mtd></mtr><mtr><mtd><mrow><mi>C</mi><mo>∩</mo><mi>D</mi><mo>=</mo><mo>∅</mo></mrow></mtd></mtr><mtr><mtd><mrow><mn>2</mn><mrow><mo>|</mo><mi>C</mi><mo>|</mo></mrow><mo>&gt;</mo><mrow><mo>|</mo><mi>V</mi><mo>|</mo></mrow><mo>−</mo><mrow><mo>|</mo><mi>R</mi><mo>|</mo></mrow></mrow></mtd></mtr></mtable>",
+    "label": "Minimize removed care phrases. Do not remove any diamond. The connected main component must contain no diamond and more than half of surviving nodes."
+  },
+  {
+    "id": "local-target-cut",
+    "title": "Local revision: separate one selected care concern",
+    "tex": "\\min_R |R|\\quad\\text{subject to }R\\cap D=\\varnothing,\\ t\\notin C,\\ 2|C|>|V|-|R|",
+    "mathml": "<mtable columnalign=\"left\" rowspacing=\"0.6em\"><mtr><mtd><mrow><munder><mi>min</mi><mi>R</mi></munder><mrow><mo>|</mo><mi>R</mi><mo>|</mo></mrow></mrow></mtd></mtr><mtr><mtd><mrow><mtext>subject to</mtext><mspace width=\".6em\"/><mi>R</mi><mo>∩</mo><mi>D</mi><mo>=</mo><mo>∅</mo></mrow></mtd></mtr><mtr><mtd><mrow><mi>t</mi><mo>∉</mo><mi>C</mi></mrow></mtd></mtr><mtr><mtd><mrow><mn>2</mn><mrow><mo>|</mo><mi>C</mi><mo>|</mo></mrow><mo>&gt;</mo><mrow><mo>|</mo><mi>V</mi><mo>|</mo></mrow><mo>−</mo><mrow><mo>|</mo><mi>R</mi><mo>|</mo></mrow></mrow></mtd></mtr></mtable>",
+    "label": "Minimize care-phrase removals while keeping every diamond protected. The selected target must lie outside a complete connected component containing more than half of surviving nodes."
+  }
+]
