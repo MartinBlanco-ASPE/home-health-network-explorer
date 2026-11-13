@@ -36,7 +36,7 @@ function createWordingSimulationUI(box,stage){
  }
  function renderSeverity(d,k,strategy){
   renderCharts(d,k,strategy,d.series);
-  note.textContent='Only care phrases are removed; severity diamonds remain. Largest piece divides by all starting nodes (phrases + diamonds). Fragmentation = 1 − Σ sᵢ(sᵢ − 1) / [n(n − 1)], using surviving component sizes sᵢ and surviving nodes n (0 when n < 2). The target line ends when its separation goal is met; comparison lines continue to the removal limit. Random is one fixed draw.';
+  note.textContent='Only care phrases are removed; severity diamonds remain. Largest piece divides by all starting nodes (phrases + diamonds). Fragmentation = 1 − Σ sᵢ(sᵢ − 1) / [n(n − 1)], using surviving component sizes sᵢ and surviving nodes n (0 when n < 2). The target line ends when its separation goal is met; comparison lines continue to the removal limit. Most common phrases removes care phrases by selected-record frequency, highest first.';
  }
  function render(d,k,strategy,removed,seed){
   pending('');const ids=d.nodes.map(n=>n.id),adj=Breakup.adjacency(ids,d.edges),stats=Breakup.stats(adj,ids,new Set(removed));

@@ -8,7 +8,7 @@ This is a separate home health study. Its records, vocabulary, policy references
 
 ## Version covered by these methods
 
-Methods page revised November 10, 2026. The published dashboard and this repository still reproduce the November 7 release. The November 9 local revision is described separately below; its new controls and target-specific results are not yet on the public dashboard. This update changes documentation and equation presentation only.
+Dashboard and methodology release: November 13, 2026. This repository reproduces the current reviewed dashboard, including target-specific care-concern simulations, four wording-removal strategies, the compact care-wording policy sunburst, agency-based ray extensions, within-category record-frequency shades, and layered hover/click highlighting.
 
 ## Open the dashboard
 
@@ -106,9 +106,7 @@ The 18 saved construction sensitivities vary support, lift, text scope, deduplic
 
 ## Removal simulations
 
-Turn Simulation on in the map title bar. Floating Play/Pause, Reset and a removal slider work alongside the left filters and compact right-hand controls. Removed phrases have definition tooltips; click a care phrase or use the dropdown while paused, and use × to restore it. Manual edits are blocked during playback. Pull pieces apart starts checked. Play fits the remaining sequence once, then preserves user pan and zoom between steps. Fit reframes explicitly. Deleted links are faint visual traces, excluded from connectivity calculations. Turning simulation off restores the original graph and evidence cards.
-
-Wording simulation runs through 0–20 removals. It uses the frozen reviewer engine: exhaustive best-set search through three removals, then best-found sets using greedy/bridge/hub starts and 12 seeded random starts with swap improvement. Each count has its own set, so phrases can return between snapshots. Eight strategy choices remain available; the charts show only Best set to shatter it, Best set to shrink the largest piece and Most common phrases. Filtered results calculate in a cached background worker.
+Turn Simulation on in the map title bar. Play/Pause, Reset and the removal slider support deletion-only playback; manual phrase removal and pill restoration work while paused. Neutral colors retain teal phrase circles and red protected concern diamonds. Target-neighbor links receive red emphasis. Playback preserves pan and zoom. The calculations describe connectivity in the displayed text graph, not effects of clinical interventions.
 
 ```math
 L=\frac{\max_i s_i}{N_0}
@@ -120,23 +118,13 @@ F=1-\frac{\sum_i s_i(s_i-1)}{n(n-1)}
 
 Here s_i is a surviving connected-component size and n is the surviving node count. Wording uses all starting phrases as its largest-piece denominator. The protected-diamond view uses all starting nodes, including diamonds. Wording follows the reviewer engine's F=1 convention when fewer than two nodes remain; the protected-diamond view uses F=0 in that edge case.
 
-```math
-\min_R |R|\quad\text{subject to }R\cap D=\varnothing,\ C\cap D=\varnothing,\ 2|C|>|V|-|R|
-```
+## Current simulation behavior
 
-R is the removed care-phrase set; D is all protected diamonds; V is the starting node set; C is a complete connected main component after removal. The strict-majority condition applies to this specific separation objective.
+The explorer calls the weighted view Care concern patterns and the score filter Screening breadth. The empirical screening rules and analytical payload are unchanged. The local interface also removes the screening-share color, shows one Top 5 summary table, and hides the ordinary summary during simulation. These controls are included in the November 13 public release and supersede the November 7 interface.
 
-The screening-diamond view retains eight provisional home-health care-issue families and removes only care phrases, up to 40. Its own saved integer-program reference requires 33 removals on the matching 60-node/152-link default graph, leaving 27 nodes and a diamond-free main component of 14. Filtered graphs use a labeled greedy route rather than a new minimum claim. For this simulation, separation succeeds when all screening diamonds sit outside a main component containing more than half the remaining nodes. That majority rule is a simulation-specific constraint, not a general requirement of network fragmentation theory. Diamonds represent screening prompts rather than confirmed severe events. The target curve ends when separation succeeds; adaptive-degree and fixed-random comparisons continue to the removal limit. Neutral colors use teal care phrases and uniformly bright-red screening diamonds.
+Wording simulation analyzes 0–40 removals with four choices: Separate the wording clusters; Best path to shatter it; Make the largest piece smaller; Most common phrases. The default cluster-boundary separation needs 16 removals, proved optimal by integer programming. Shatter and shrink playback follow one finish-line removal set, so removed phrases do not return during Play. Four solid playback curves and two dotted per-count best-set references distinguish a sequential path from separately optimized sets. Larger best-found sets are not universal optimality claims. Cluster membership stays fixed during playback.
 
-[Borgatti (2006)](https://doi.org/10.1007/s10588-006-7084-x) provides node-set disruption and fragmentation context; [Braunstein et al. (2016)](https://pmc.ncbi.nlm.nih.gov/articles/PMC5098660/) studies network dismantling. This simulation describes text connectivity, not clinical effects of eliminating an issue or an intervention recommendation. Its data and reference result are separate from hospice.
-
-## November 9 local revision (not yet published)
-
-The local explorer calls the weighted view Care concern patterns and the score filter Screening breadth. The empirical screening rules and analytical payload are unchanged. The local interface also removes the screening-share color, shows one Top 5 summary table, and hides the ordinary summary during simulation. These are local differences; the public November 7 release retains its older controls.
-
-Local wording simulation analyzes 0–40 removals with four choices: Separate the wording clusters; Best path to shatter it; Make the largest piece smaller; Most common phrases. The default cluster-boundary separation needs 16 removals, proved optimal by integer programming. Shatter and shrink playback follow one finish-line removal set, so removed phrases do not return during Play. Four solid playback curves and two dotted per-count best-set references distinguish a sequential path from separately optimized sets. Larger best-found sets are not universal optimality claims. Cluster membership stays fixed during playback.
-
-The local care-concern simulation chooses one existing concern diamond. Stage 1 minimizes removable phrases separating that selected target from a strict-majority main component; every diamond remains protected, but other diamonds may remain in the main component. This differs from the published view, which separates all diamonds together.
+The care-concern simulation chooses one existing concern diamond. Stage 1 minimizes removable phrases separating that selected target from a strict-majority main component; every diamond remains protected, but other diamonds may remain in the main component. This supersedes the November 7 all-diamonds separation objective.
 
 ```math
 \min_R |R|\quad\text{subject to }R\cap D=\varnothing,\ t\notin C,\ 2|C|>|V|-|R|
@@ -146,7 +134,7 @@ Here t is the selected target diamond and C is a complete surviving connected co
 
 Stage 2 greedily removes phrases that most increase fragmentation until no surviving links remain, or reports a protected-edge obstruction. It has no minimum-removal guarantee. Changed graph topologies use best-found constrained max-flow cuts rather than inheriting default optimality. Minimum vertex-cut route certificates concern fixed endpoints; a matching certificate alone does not prove the separate majority-constrained optimum. Concern line charts are absent; per-target separation sentences and formulas appear below the map.
 
-Both local simulations start from the ordinary settled layout. Filter changes preserve camera position, and playback retains pan/zoom. Manual removal by clicking the map and restoration by pill remain available while paused. These calculations describe text-graph structure, not improvements in care or intervention effects. The edge weights build the displayed graph; surviving-edge connectivity is unweighted in removal calculations.
+Both simulations start from the ordinary settled layout. Filter changes preserve camera position, and playback retains pan/zoom. Manual removal by clicking the map and restoration by pill remain available while paused. These calculations describe text-graph structure, not improvements in care or intervention effects. The edge weights build the displayed graph; surviving-edge connectivity is unweighted in removal calculations.
 
 ## Care-issue screening
 
@@ -164,13 +152,13 @@ Severity-share color is the share of matching source CCNs with any positive scre
 
 ## Issues and policy
 
-The sunburst maps all 60 wording/screen features to 81 distinct issue–section relationships across 12 sections. Eleven sections belong to [42 CFR Part 484 — Home Health Services](https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-G/part-484). Respirator fit testing also has a separate OSHA 29 CFR 1910.134 reference with occupational and historical scope limits.
+The compact sunburst shows 52 care-wording phrases in 69 phrase–policy mappings across 12 regulatory sections. Eleven are in [42 CFR Part 484](https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-G/part-484); respirator fit testing also has a separately scoped [OSHA 29 CFR 1910.134](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.134) reference. These are conceptual reference relationships, not adjudicated policy-specific citation counts.
 
-Each outer slice is one issue linked to one section; an issue can appear in several branches. Inner branch size counts those mappings. Arc size does not measure agency coverage, clinical seriousness, regulatory importance or harm. Colors identify sections.
+Each ray has equal label space plus an extension proportional to distinct source agencies: extension = 100 × agency count / largest care-phrase agency count. Labels wrap in the compact chart. Equal angles count mappings. Hue identifies policy category. Light-to-dark shade represents matching-record frequency within that category: t = (records − category minimum) / (category maximum − category minimum). The color contribution increases linearly from 22% to 100%; tied/single-value categories use the full category color. Category shade scales are separate and cannot be compared as absolute counts across policies.
 
-Hover for the styled tooltip. Click a section or issue to lock its highlight and lighten other branches while preserving the full chart. Clear highlight, the center or Escape restores colors. The regulation dropdown filters explicitly. The detail panel provides plain-language explanations, exact policy links, related issues and saved evidence with CCNs and source rows.
+Hover previews a phrase or section; click locks it. A pointer-transparent focus layer outlines related sectors and temporarily fades unrelated sectors. Clear highlight, center click or Escape restores the original frequency shades. The care-wording vocabulary and distinct-agency ray metric are fixed; there is no top filter toolbar. The phrase list, policy legend, exact counts, source evidence and original pilot navigation remain available. A phrase mapped to multiple sections repeats its corpus-wide value under each; do not add those repeated values as unique records.
 
-This reference map uses full-corpus evidence-oriented counts independently of network filters. Export mapping downloads the displayed reference relationships. These are research reference links, not source-reported citations or verified violations. Existing policy anchors were checked November 5, 2026; survey-date applicability remains incomplete. Mapping is not a Phase 4 policy-result synthesis.
+The map uses the full candidate-care corpus, independently of network filters. Match counts describe wording, not confirmed patient harm, legal re-rating, nationally representative noncompliance or policy effects. Historical applicability and independent semantic validation remain pending.
 
 ## Downloads and traceability
 
@@ -186,7 +174,7 @@ One AI-assisted reading/coding pass covers 48 complete pilot accounts from 24 so
 
 There is no independent human semantic validation, representative sampling or saturation claim. Vocabulary, codes, screening rules and clusters remain exploratory. There are no dedicated workbook fields for accreditor/surveyor, structured IJ, or original-report URLs; missing values are not recreated or classified as No. Source Condition/Standard hierarchy remains distinct from the screen.
 
-The analysis does not establish patient-harm prevalence, provider ties, nationally representative noncompliance rates, causal policy effects, or policy recommendations. Historical amendments, waivers and state-specific applicability are not fully reconciled. Phase 4 synthesis remains gated.
+The analysis does not establish patient-harm prevalence, provider ties, nationally representative noncompliance rates, causal policy effects, or policy recommendations. Historical amendments, waivers and state-specific applicability are not fully reconciled. Phase 4 policy-result synthesis is outside this public dashboard release.
 
 ## Repository contents
 
@@ -216,4 +204,4 @@ Source context: [CMS QCOR](https://qcor.cms.gov/main.jsp), [42 CFR Part 484](htt
 
 Initial repository release: November 6, 2026. Study stage: Phase 3 descriptive exploration. This repository is a research presentation and is not an official CMS reporting product. Publication does not imply federal endorsement or advancement to Phase 4.
 
-Published simulation/interface release: November 7, 2026. Documentation and readable-equation update: November 10, 2026. The November 9 local revision is documented as unpublished; the public dashboard and underlying analytical data are unchanged by this methods update.
+Published simulation/interface release: November 7, 2026. Documentation and readable-equation update: November 10, 2026. The current simulation controls and sunburst revisions are included in the November 13, 2026 release; the underlying home-health feature snapshot and screening definitions are unchanged.

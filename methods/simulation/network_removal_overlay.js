@@ -2,6 +2,7 @@
 const elem=hhaEl;
 const NODE_DESCRIPTIONS=Object.fromEntries(features.map(f=>[f.label,HHA_NODE_POLICIES[f.key]?.description||f.label]));
 const simulationNodes=()=>current.shown.map(id=>({id,label:features[id].label,count:current.support[id],isSeverity:id>=wordCount}));
+function simulationRecordCounts(){const counts=new Map(current.shown.map(id=>[id,0]));for(const row of current.rows)for(const[id]of featurePairs(row,current.options.scope))if(counts.has(id))counts.set(id,counts.get(id)+1);return counts;}
 function setSimulationData(data){const store=network.body.data;store.edges.clear();store.nodes.clear();store.nodes.add(data.nodes);store.edges.add(data.edges);}
 function setSimulationView(view){$('view').value=view;preset();}
 function readingFormula(id,expression,note,definitions=[],title='Formula guide'){hhaFormula(id,expression,title,note,definitions);}
@@ -42,7 +43,7 @@ function readingFormula(id,expression,note,definitions=[],title='Formula guide')
  let active=false,base=null,order=[],gone=[],timer=null,exact=false,manual=false,exportStates=[],legendOpen=true,wordingData=null,wordingBusy=false,wordingWorker=null,wordingGeneration=0,wordingSeed=5001,playbackLayout=false,severityData=null;
  const wordingCache=new Map([[WORDING_DEFAULT_ANALYSIS.key,WORDING_DEFAULT_ANALYSIS]]);let savedWordingStrategy='opt_fragmentation',savedSeverityStrategy='target';
  const removalLimit=()=>Math.min(base?.wording?20:40,base?.removable.size||0);
- function configureStrategy(){const select=$('removalStrategy');select.replaceChildren();for(const[value,label]of base.wording?WORDING_STRATEGIES:[['target','Shortest route to disconnect diamonds'],['degree','Most connected first'],['random','Random phrase order']]){const option=elem('option','',label);option.value=value;select.append(option);}select.value=base.wording?savedWordingStrategy:savedSeverityStrategy;}
+ function configureStrategy(){const select=$('removalStrategy');select.replaceChildren();for(const[value,label]of base.wording?WORDING_STRATEGIES:[['target','Shortest route to disconnect diamonds'],['degree','Most connected first'],['records','Most common phrases'],['random','Random phrase order']]){const option=elem('option','',label);option.value=value;select.append(option);}select.value=base.wording?savedWordingStrategy:savedSeverityStrategy;}
  function stopWordingWorker(){wordingGeneration++;wordingWorker?.terminate();wordingWorker=null;}
  function loadWording(){if(!base.wording||!wordingBusy)return;const generation=++wordingGeneration;const input=base.wordingInput,url=URL.createObjectURL(new Blob([WORDING_WORKER_SOURCE],{type:'text/javascript'}));wordingWorker=new Worker(url);URL.revokeObjectURL(url);wordingWorker.onmessage=e=>{if(generation!==wordingGeneration||!active||!base.wording)return;const result=e.data.result;if(!result){wordingUI.pending('Calculation failed: '+e.data.error);wordingWorker.terminate();wordingWorker=null;return;}if(wordingCache.size>=10)wordingCache.clear();wordingCache.set(result.key,result);wordingData=result;wordingBusy=false;wordingWorker.terminate();wordingWorker=null;seek(0);};wordingWorker.onerror=e=>{wordingUI.pending('Calculation failed: '+e.message);};wordingWorker.postMessage(input);}
  const idsKey=ids=>ids.map(String).sort().join('|');
@@ -73,6 +74,7 @@ function readingFormula(id,expression,note,definitions=[],title='Formula guide')
   const ids=[...base.removable];order=[];if(base.wording)return;
   exact=base.diamonds.length>0&&idsKey(base.nodes.map(n=>n.id))===idsKey(reference.nodes.map(n=>n[0]))&&base.nodes.every(n=>reference.nodes.some(r=>r[0]===n.id&&r[1]===base.labels.get(n.id)&&r[2]===base.diamonds.includes(n.id)))&&edgesKey(base.edges)===edgesKey(reference.edges.map(([from,to])=>({from,to})));
   if(strategy==='target'&&exact){order=reference.order.concat(ids.filter(id=>!reference.order.includes(id))).slice(0,40);return;}
+  if(strategy==='records'){order=Breakup.attackOrder('records',base.nodes.map(n=>({id:n.id,label:base.labels.get(n.id),records:base.records.get(n.id)||0})),[],removalLimit(),{removable:ids});return;}
   if(strategy==='random'){let seed=92741;const rand=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};order=ids.slice();for(let i=order.length-1;i>0;i--){const j=Math.floor(rand()*(i+1));[order[i],order[j]]=[order[j],order[i]];}order=order.slice(0,40);return;}
   const removed=new Set(order);while(order.length<Math.min(40,ids.length)){
    const remaining=ids.filter(id=>!removed.has(id));
@@ -85,7 +87,7 @@ function readingFormula(id,expression,note,definitions=[],title='Formula guide')
  }
  function buildSeverityCurves(){
   const savedOrder=order.slice(),savedExact=exact;
-  const series=[['target',exact?'Shortest route to disconnect diamonds':'Target severity diamonds','#b2182b'],['degree','Most connected first','#dc784e'],['random','Random phrase order','#1b7837']];
+  const series=[['target',exact?'Shortest route to disconnect diamonds':'Target severity diamonds','#b2182b'],['degree','Most connected first','#dc784e'],['records','Most common phrases','#1b7837']];
   const d={severity:true,kmax:removalLimit(),series,curves:{}};
   for(const[key]of series){makeOrder(key);const rows=[];for(let k=0;k<=d.kmax;k++){
    const s=statistics(new Set(order.slice(0,k))),pairs=s.connectedPairs;
@@ -96,7 +98,7 @@ function readingFormula(id,expression,note,definitions=[],title='Formula guide')
  }
  function snapshot(){
   base={nodes:network.body.data.nodes.get(),edges:network.body.data.edges.get(),positions:network.getPositions(),camera:network.getViewPosition(),scale:network.getScale(),labels:new Map(simulationNodes().map(n=>[n.id,n.label])),phrases:new Set(simulationNodes().filter(n=>!n.isSeverity).map(n=>n.id)),diamonds:simulationNodes().filter(n=>n.isSeverity).map(n=>n.id),legend:$('legend').innerHTML,legendTitle:$('legendColorTitle').textContent,legendNotes:$('legendNote').textContent};
-  base.wording=!base.diamonds.length&&current.options.view!=='severity';base.removable=new Set(base.phrases);configureStrategy();playbackLayout=false;$('wordingPullApart').checked=true;wordingBusy=false;wordingData=null;if(base.wording){base.wordingInput={nodes:simulationNodes().map(n=>({id:n.id,label:n.label,records:n.count})),edges:current.edges.map(e=>({a:e.source,b:e.target,w:e.weight}))};const key=wordingTopologyKey(base.wordingInput);wordingData=wordingCache.get(key)||null;wordingBusy=!wordingData;}makeOrder();gone=[];manual=base.wording&&$('removalStrategy').value==='manual';$('removalCount').max=removalLimit();if(!base.wording)buildSeverityCurves();
+  base.records=simulationRecordCounts();base.wording=!base.diamonds.length&&current.options.view!=='severity';base.removable=new Set(base.phrases);configureStrategy();playbackLayout=false;$('wordingPullApart').checked=true;wordingBusy=false;wordingData=null;if(base.wording){base.wordingInput={nodes:simulationNodes().map(n=>({id:n.id,label:n.label,records:n.count})),edges:current.edges.map(e=>({a:e.source,b:e.target,w:e.weight}))};const key=wordingTopologyKey(base.wordingInput);wordingData=wordingCache.get(key)||null;wordingBusy=!wordingData;}makeOrder();gone=[];manual=base.wording&&$('removalStrategy').value==='manual';$('removalCount').max=removalLimit();if(!base.wording)buildSeverityCurves();
   if(!network.removalOverlayInstalled){
    network.removalOverlayInstalled=true;
    network.on('resize',()=>{if(active&&gone.length){if(timer!==null)preparePlaybackFrame();paint({fit:timer===null});}});

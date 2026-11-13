@@ -140,6 +140,14 @@
     "pass": true
   },
   {
+    "name": "common order uses home-health record frequency",
+    "pass": true
+  },
+  {
+    "name": "green legend uses common phrases",
+    "pass": true
+  },
+  {
     "name": "majority condition explicitly simulation-specific",
     "pass": true
   },
@@ -168,7 +176,7 @@
     "pass": true
   },
   {
-    "name": "random curves agree with every live severity step",
+    "name": "records curves agree with every live severity step",
     "pass": true
   },
   {
@@ -284,6 +292,22 @@
     "pass": true
   },
   {
+    "name": "severity records 1560 all packed frames fit map",
+    "pass": true
+  },
+  {
+    "name": "severity records 1560 no per-step auto recenter",
+    "pass": true
+  },
+  {
+    "name": "severity records 1560 play stops correctly",
+    "pass": true
+  },
+  {
+    "name": "severity records 1560 cursor follows frame",
+    "pass": true
+  },
+  {
     "name": "severity random 1560 all packed frames fit map",
     "pass": true
   },
@@ -369,6 +393,22 @@
   },
   {
     "name": "severity target 390 cursor follows frame",
+    "pass": true
+  },
+  {
+    "name": "severity records 390 all packed frames fit map",
+    "pass": true
+  },
+  {
+    "name": "severity records 390 no per-step auto recenter",
+    "pass": true
+  },
+  {
+    "name": "severity records 390 play stops correctly",
+    "pass": true
+  },
+  {
+    "name": "severity records 390 cursor follows frame",
     "pass": true
   },
   {
